@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Regex Tester</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+    </div>
+
+    <div class="container">
+        <header class="hero-section">
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hero-content">
+                <h1 class="glowing-text">
+                    <i class="fas fa-code"></i> Advanced Regex Tester
+                </h1>
+                <p class="subtitle">Test your regular expressions with real-time highlighting</p>
+                <div class="hero-buttons">
+                    <button class="cta-button primary">
+                        <i class="fas fa-play"></i> Get Started
+                    </button>
+                    <button class="cta-button secondary">
+                        <i class="fas fa-book"></i> Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-features">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Real-time Testing</h3>
+                    <p>Instant feedback as you type</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Color Highlights</h3>
+                    <p>Beautiful match highlighting</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>Smart Features</h3>
+                    <p>Advanced regex capabilities</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="input-section glass-card">
+                <div class="regex-input">
+                    <label for="regexPattern">
+                        <i class="fas fa-terminal"></i> Regular Expression
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="text" id="regexPattern" placeholder="Enter your regex pattern here...">
+                        <button id="testRegex" class="test-btn">
+                            <i class="fas fa-play"></i> Test
+                        </button>
+                    </div>
+                    <div class="regex-options">
+                        <label class="option">
+                            <input type="checkbox" id="globalFlag" checked>
+                            <span class="checkbox-custom"></span>
+                            Global (g)
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" id="caseInsensitiveFlag">
+                            <span class="checkbox-custom"></span>
+                            Case Insensitive (i)
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" id="multilineFlag">
+                            <span class="checkbox-custom"></span>
+                            Multiline (m)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="test-input">
+                    <label for="testString">
+                        <i class="fas fa-align-left"></i> Test String
+                    </label>
+                    <textarea id="testString" placeholder="Enter your test string here..."></textarea>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div class="matches-container glass-card">
+                    <h3><i class="fas fa-list"></i> Matches</h3>
+                    <div id="matchesList" class="matches-list"></div>
+                </div>
+
+                <div class="highlighted-output glass-card">
+                    <h3><i class="fas fa-highlighter"></i> Highlighted Result</h3>
+                    <div id="highlightedText" class="highlighted-text"></div>
+                </div>
+            </div>
+        </main>
+
+        <div class="data-randomizer glass-card">
+            <h3><i class="fas fa-chart-pie"></i> Data Visualization</h3>
+            <div class="randomizer-controls">
+                <div class="control-group">
+                    <label for="dataType">Data Type:</label>
+                    <select id="dataType" class="control-select">
+                        <option value="numbers">Numbers</option>
+                        <option value="words">Words</option>
+                        <option value="emails">Emails</option>
+                        <option value="dates">Dates</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="dataCount">Count:</label>
+                    <input type="number" id="dataCount" class="control-input" min="1" max="100" value="10">
+                </div>
+                <div class="control-group">
+                    <label for="visualizationType">Visualization:</label>
+                    <select id="visualizationType" class="control-select">
+                        <option value="pie">Pie Chart</option>
+                        <option value="bar">Bar Chart</option>
+                        <option value="list">List View</option>
+                    </select>
+                </div>
+                <button id="generateData" class="generate-btn">
+                    <i class="fas fa-random"></i> Generate
+                </button>
+            </div>
+            <div class="visualization-container">
+                <div id="chartContainer" class="chart-container"></div>
+                <div id="listContainer" class="list-container"></div>
+            </div>
+        </div>
+
+        <div class="info-panel glass-card">
+            <div class="info-card">
+                <h4><i class="fas fa-info-circle"></i> Quick Reference</h4>
+                <div class="reference-grid">
+                    <div class="reference-item">
+                        <code>.</code>
+                        <span>Any character</span>
+                    </div>
+                    <div class="reference-item">
+                        <code>\d</code>
+                        <span>Digit</span>
+                    </div>
+                    <div class="reference-item">
+                        <code>\w</code>
+                        <span>Word character</span>
+                    </div>
+                    <div class="reference-item">
+                        <code>\s</code>
+                        <span>Whitespace</span>
+                    </div>
+                    <div class="reference-item">
+                        <code>^</code>
+                        <span>Start of line</span>
+                    </div>
+                    <div class="reference-item">
+                        <code>$</code>
+                        <span>End of line</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Made with <i class="fas fa-heart"></i> for developers</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
